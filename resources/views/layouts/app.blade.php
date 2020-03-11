@@ -12,8 +12,8 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('css/gallery-materialize.min.opt.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/materialize.min.css') }}" />
+    <link rel="stylesheet" href="https://teste-dev.herokuapp.com/public/css/gallery-materialize.min.opt.css" />
+    <link rel="stylesheet" href="https://teste-dev.herokuapp.com/public/css/materialize.min.css"/>
 
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -62,7 +62,7 @@
 
         <div class="nav-header de">
           <h1>
-          <img src="https://www.labspaschoalotto.com.br/assets/images/logotipo-labs-paschoalotto-2-384x194.png">
+            <img src="https://www.labspaschoalotto.com.br/assets/images/logotipo-labs-paschoalotto-2-384x194.png">
           </h1>
         </div>
       </div>
@@ -81,9 +81,10 @@
 
 
     <!-- Core Javascript -->
-    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
-    <script src="{{ asset('js/materialize.min.js') }}"></script>
-    <script src="{{ asset('js/masonry.pkgd.min.js') }}"></script>
+    <script src="https://teste-dev.herokuapp.com/public/js/jquery-3.4.1.min.js"></script>
+
+    <script src="https://teste-dev.herokuapp.com/public/js/materialize.min.js"></script>
+    <script src="https://teste-dev.herokuapp.com/public/js/masonry.pkgd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
 
