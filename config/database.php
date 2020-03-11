@@ -41,11 +41,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'db4free.net'),
+            'host' => env('DB_HOST', 'mysql://bbe4f62c4d1f39:a865e703@us-cdbr-iron-east-04.cleardb.net/heroku_fb23185d11aec11?reconnect=true'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'pasc_dev'),
-            'username' => env('DB_USERNAME', 'joao_paulo_siq'),
-            'password' => env('DB_PASSWORD', 'arx2ykwPnwLi'),
+            'database' => env('DB_DATABASE', 'heroku_fb23185d11aec11'),
+            'username' => env('DB_USERNAME', 'bbe4f62c4d1f39'),
+            'password' => env('DB_PASSWORD', 'a865e703'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
