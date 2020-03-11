@@ -64,7 +64,7 @@ class ClientService
 
         $parameters = $agent->getParameters();
 
-        $cpf = Format::array_get($parameters, "cpf");
+        $cpf = Format::extractNumbers(array_get($parameters, "cpf"));
         $client = $this->repository->findByCPF($cpf);
 
         if ($client) {
