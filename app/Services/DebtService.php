@@ -48,6 +48,24 @@ class DebtService
         return $client;
     }
 
+    public function echoDebts($client)
+    {
+        $debts = $this->calculateDebtsBy($client);
+
+        $nome = array_get($debts, "name");
+        $total = array_get($debts, "total");
+
+        if ($nome == "") {
+            return "Seu registro não consta em nossa base 🤓";
+        }
+
+        if ($total == "R$0,00") {
+            return "$nome, você não possui nenhuma dívida 😀";
+        }
+
+        return "$nome, você possui uma dívida de $total";
+    }
+
     public function transformDebt($debt)
     {
         $dataCalculo = Carbon::now();

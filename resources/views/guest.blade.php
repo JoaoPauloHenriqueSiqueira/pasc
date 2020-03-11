@@ -142,7 +142,7 @@
     <link rel="stylesheet" id="font2-css" href="https://www.paschoalotto.com.br/wp-content/themes/Paschoalotto-08-2018/css/bootstrap.min.css?ver=1" type="text/css" media="all">
     <link rel="stylesheet" id="animate-css" href="https://www.paschoalotto.com.br/wp-content/themes/Paschoalotto-08-2018/css/animate.css?ver=1" type="text/css" media="all">
     <link rel="stylesheet" id="btn-topo-css" href="https://www.paschoalotto.com.br/wp-content/themes/Paschoalotto-08-2018/css/btn-topo.css?ver=1" type="text/css" media="all">
-  
+
     <!-- Facebook Pixel Code -->
     <script type="text/javascript">
         ! function(f, b, e, v, n, t, s) {
@@ -184,9 +184,11 @@
     <!-- End Facebook Pixel Code -->
     <script async="" wp_base_url="https://app.waypanel.com/" wp_account_uid="5880ca1d7c1661f10125563cf05230" src="https://d1dv8dsp2icoqx.cloudfront.net/waypanel_tracker.min.js?sv=1"></script>
     <style type="text/css">
-    body {
-  overflow: hidden; /* Hide scrollbars */
-}
+        body {
+            overflow: hidden;
+            /* Hide scrollbars */
+        }
+
         @font-face {
             font-family: gsc;
             src: url(//st.getsitecontrol.com/main/widgets/201809/ec0f75b9ec70a83cbd5546650a951fac/common/fonts/gsc.eot?) format('embedded-opentype');
@@ -658,7 +660,7 @@
             transition: none !important
         }
 
-     
+
 
         .guu8foq,
         .g-t2fzb1 {
@@ -723,10 +725,12 @@
                         <div class="carousel-item active content__container heightWebdoor">
                             <img src="https://www.paschoalotto.com.br/wp-content/uploads/2018/10/banner-2.jpg" alt="Slide 1" class="img-fluid webdoor">
                             <div class="carousel-caption" style=" z-index: 1;">
-                                <iframe allow="microphone;" width="350" height="430" src="https://console.dialogflow.com/api-client/demo/embedded/bfbe8849-9ec8-4132-819e-b37be721522f">
+                                <iframe allow="microphone;" width="350" height="430" src="https://console.dialogflow.com/api-client/demo/embedded/b9b0cca9-f65a-4cc7-b42f-7447abf7796f">
                                 </iframe>
                                 <!--                            <a href="#fale-conosco" class="scrollsuave"><i class="fas fa-angle-down"></i></a>-->
                             </div>
+
+
 
                         </div>
 

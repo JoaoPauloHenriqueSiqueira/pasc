@@ -46,4 +46,22 @@ class DebtsController extends Controller
             return $e->getMessage();
         }
     }
+
+
+    /**
+     *Lista todas as dividas de um cliente
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function getByCpf(Request $request)
+    {
+        try {
+            $agent = \Dialogflow\WebhookClient::fromData($request->json()->all());
+            $agent->reply($this->clientService->findCpf($agent));
+            return response()->json($agent->render());
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }

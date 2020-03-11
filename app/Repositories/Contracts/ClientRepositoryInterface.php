@@ -9,4 +9,7 @@ interface ClientRepositoryInterface
     public function save($request);
 
     public function find($request);
+
+    public function findByCPF($request);
+
 }

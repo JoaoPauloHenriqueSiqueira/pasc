@@ -26,7 +26,6 @@ class ClientService
         $this->repository = $repository;
         $this->debtConfigsService = $debtConfigsService;
         $this->debtService = $debtService;
-
     }
 
 
@@ -41,6 +40,18 @@ class ClientService
 
         if ($client) {
             return $this->debtService->calculateDebtsBy($client->get()->first());
+        }
+
+        return [];
+    }
+
+    public function findCpf($agent)
+    {
+        $parameters = $agent->getParameters();
+        $client = $this->repository->findByCPF(array_get($parameters, "cpf"));
+
+        if ($client) {
+            return $this->debtService->echoDebts($client->get()->first());
         }
 
         return [];

@@ -24,6 +24,12 @@ class ClientsRepository implements ClientRepositoryInterface
         return $this->model->where('id', $clientId)->with('debts');
     }
 
+
+    public function findByCPF($cpf)
+    {
+        return $this->model->where('cpf', $cpf)->with('debts');
+    }
+
     public function save($data)
     {
         return $this->model->updateOrCreate($data);
