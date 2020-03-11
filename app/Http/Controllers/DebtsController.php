@@ -57,9 +57,7 @@ class DebtsController extends Controller
     public function getByCpf(Request $request)
     {
         try {
-            $agent = \Dialogflow\WebhookClient::fromData($request->json()->all());
-            $agent->reply($this->clientService->findCpf($agent));
-            return response()->json($agent->render());
+            return response()->json($this->clientService->findCpf($request));
         } catch (Exception $e) {
             return $e->getMessage();
         }

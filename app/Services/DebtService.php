@@ -31,7 +31,7 @@ class DebtService
 
 
     /**
-     * Realiza calculo dos juros por cliente
+     * Calculate debt
      *
      * @param [type] $client
      * @return void
@@ -48,6 +48,9 @@ class DebtService
         return $client;
     }
 
+    /**
+     * Return data
+     */
     public function echoDebts($client)
     {
         $debts = $this->calculateDebtsBy($client);
@@ -66,6 +69,12 @@ class DebtService
         return "$nome, você possui uma dívida de $total";
     }
 
+    /**
+     * Transform data
+     *
+     * @param [type] $debt
+     * @return void
+     */
     public function transformDebt($debt)
     {
         $dataCalculo = Carbon::now();
@@ -77,6 +86,15 @@ class DebtService
         return $this->getFinalDebt($debt, $parcelaString, $calculate, $diasAtraso);
     }
 
+    /**
+     * Final data
+     *
+     * @param [type] $debt
+     * @param [type] $parcelaString
+     * @param [type] $calculate
+     * @param [type] $diasAtraso
+     * @return void
+     */
     public function getFinalDebt($debt, $parcelaString, $calculate, $diasAtraso)
     {
         $valueTotal = array_get($calculate, "totalValue");
@@ -90,6 +108,13 @@ class DebtService
         return $debt;
     }
 
+    /**
+     * String for parcels
+     *
+     * @param [type] $dataCalculo
+     * @param [type] $parcelas
+     * @return void
+     */
     public function getParcels($dataCalculo, $parcelas)
     {
         $parcelaString = "";
@@ -105,12 +130,25 @@ class DebtService
         return $parcelaString;
     }
 
-
+    /**
+     * Diff in days
+     *
+     * @param [type] $dataCalculo
+     * @param [type] $dateDebt
+     * @return void
+     */
     public function diffDaysPayment($dataCalculo, $dateDebt)
     {
         return $dataCalculo->diffInDays($dateDebt);
     }
 
+    /**
+     * Choose debt
+     *
+     * @param [type] $originalValue
+     * @param [type] $diasAtraso
+     * @return void
+     */
     public function calculate($originalValue, $diasAtraso)
     {
         $tax = array_get($this->config, "tax_id");
@@ -126,6 +164,13 @@ class DebtService
         }
     }
 
+    /**
+     * Simple Calculate
+     *
+     * @param [type] $originalValue
+     * @param [type] $diasAtraso
+     * @return void
+     */
     public function calculateSimpleTax($originalValue, $diasAtraso)
     {
         $tax =  ($this->tax / 100) * $diasAtraso;
@@ -137,6 +182,13 @@ class DebtService
         return $this->returnTaxObject($taxValue, $totalParcelas, $valueComis, $sumValueTax);
     }
 
+    /**
+     * Compost Debt Calculate
+     *
+     * @param [type] $originalValue
+     * @param [type] $diasAtraso
+     * @return void
+     */
     public function calculateCompTax($originalValue, $diasAtraso)
     {
         //valor Taxa de juros
@@ -159,7 +211,15 @@ class DebtService
         return $this->returnTaxObject($taxValue, $parcelas, $valueComis, $value);
     }
 
-
+    /**
+     * Normlize data
+     *
+     * @param [type] $taxValue
+     * @param [type] $totalParcelas
+     * @param [type] $valueComis
+     * @param [type] $sumValueTax
+     * @return void
+     */
     public function returnTaxObject($taxValue, $totalParcelas, $valueComis, $sumValueTax)
     {
         $return = [];

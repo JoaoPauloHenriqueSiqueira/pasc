@@ -8,4 +8,9 @@ class Format
     {
         return "R$" . number_format($value, 2, ',', '.');
     }
+
+    public static function extractNumbers($value)
+    {
+        return preg_replace('[\D]', '', $value);
+    }
 }

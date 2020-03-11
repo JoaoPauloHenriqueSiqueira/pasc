@@ -2,10 +2,9 @@
 
 namespace App\Services;
 
+use App\Library\Format;
 use App\Repositories\Contracts\ClientRepositoryInterface;
-use Carbon\Carbon;
 use App\Services\DebtService;
-
 
 class ClientService
 {
@@ -28,12 +27,20 @@ class ClientService
         $this->debtService = $debtService;
     }
 
-
+    /**
+     * Get repository
+     */
     public function get()
     {
         return $this->repository->all();
     }
 
+    /**
+     * Find
+     *
+     * @param [type] $request
+     * @return void
+     */
     public function find($request)
     {
         $client = $this->repository->find(array_get($request, "id"));
@@ -45,13 +52,24 @@ class ClientService
         return [];
     }
 
-    public function findCpf($agent)
+    /**
+     * Find By CPF
+     *
+     * @param [type] $request
+     * @return void
+     */
+    public function findCpf($request)
     {
+        $agent = \Dialogflow\WebhookClient::fromData($request->json()->all());
+
         $parameters = $agent->getParameters();
-        $client = $this->repository->findByCPF(array_get($parameters, "cpf"));
+
+        $cpf = Format::array_get($parameters, "cpf"));
+        $client = $this->repository->findByCPF($cpf);
 
         if ($client) {
-            return $this->debtService->echoDebts($client->get()->first());
+            $agent->reply($this->debtService->echoDebts($client->get()->first()));
+            return $agent->render();
         }
 
         return [];

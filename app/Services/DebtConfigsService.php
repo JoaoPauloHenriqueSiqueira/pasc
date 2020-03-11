@@ -19,7 +19,11 @@ class DebtConfigsService
         $this->repository = $repository;
     }
 
-
+    /**
+     * Get data
+     *
+     * @return void
+     */
     public function get()
     {
         $debt = $this->first();
@@ -31,12 +35,23 @@ class DebtConfigsService
         return $debt;
     }
 
+    /**
+     * Return First register
+     *
+     * @return void
+     */
     public function first()
     {
         $debtConfigs = $this->repository->all()->get();
         return $debtConfigs->first();
     }
 
+    /**
+     * Save data
+     *
+     * @param [type] $request
+     * @return void
+     */
     public function save($request)
     {
         $datas = $request->all();
@@ -45,6 +60,12 @@ class DebtConfigsService
         return redirect('/admin');
     }
 
+    /**
+     * Normalize 
+     *
+     * @param [type] $data
+     * @return void
+     */
     private function make($data)
     {
         $tax = 1;
@@ -56,6 +77,11 @@ class DebtConfigsService
         return $data;
     }
 
+    /**
+     * Mock data
+     *
+     * @return void
+     */
     private function mock()
     {
         $data = [];
